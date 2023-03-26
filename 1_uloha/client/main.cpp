@@ -2,18 +2,39 @@
 
 int main(int argc, char **argv) {
 
-    if (argc < 1) {
+    /** Zkontrolujeme parametry. */
+    if (argc < 3) {
         cout << "Nezadali jste port, na ktery se ma klient pripojit nebo zpravu, kterou ma klient poslat ." << endl;
-        return 1;
+        return EXIT_FAILURE;
     }
 
     cout << "Spoustim klienta." << endl;
 
-    Client client = Client(stoi(argv[1]), argv[2]);
+    int port;
+    string message;
 
-    client.Run_Client();
+    try {
+        port = stoi(argv[1]);
+        message = string(argv[2]);
+    } catch (const std::invalid_argument & e) {
+        cout << "Parametr musi byt cislo!\n";
+        return EXIT_FAILURE;
+    } catch (const std::out_of_range & e) {
+        cout << "Spatne cislo portu.\n";
+        return EXIT_FAILURE;
+    }
 
-    cout << "Koncim klienta." << endl;
+    if (port <= 65535 && port >= 1) {
+        if (message.length() <= 255 && message.length() > 0) {
+            Client client = Client(port, message);
 
-    return 0;
+            client.Run_Client();
+
+            cout << "Koncim klienta." << endl;
+        } else
+            cout << "Spatna delka zpravy." << endl;
+    } else
+        cout << "Spatne cislo portu." << endl;
+
+    return EXIT_SUCCESS;
 }

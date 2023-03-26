@@ -97,51 +97,19 @@ server/CMakeFiles/server.dir/src/Server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/Server.cpp.s"
 	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build/server && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jaroslav/Dokumenty/os/psi/1_uloha/server/src/Server.cpp -o CMakeFiles/server.dir/src/Server.cpp.s
 
-server/CMakeFiles/server.dir/src/client/Server_Client.cpp.o: server/CMakeFiles/server.dir/flags.make
-server/CMakeFiles/server.dir/src/client/Server_Client.cpp.o: ../server/src/client/Server_Client.cpp
-server/CMakeFiles/server.dir/src/client/Server_Client.cpp.o: server/CMakeFiles/server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaroslav/Dokumenty/os/psi/1_uloha/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object server/CMakeFiles/server.dir/src/client/Server_Client.cpp.o"
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build/server && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT server/CMakeFiles/server.dir/src/client/Server_Client.cpp.o -MF CMakeFiles/server.dir/src/client/Server_Client.cpp.o.d -o CMakeFiles/server.dir/src/client/Server_Client.cpp.o -c /home/jaroslav/Dokumenty/os/psi/1_uloha/server/src/client/Server_Client.cpp
-
-server/CMakeFiles/server.dir/src/client/Server_Client.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/client/Server_Client.cpp.i"
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build/server && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jaroslav/Dokumenty/os/psi/1_uloha/server/src/client/Server_Client.cpp > CMakeFiles/server.dir/src/client/Server_Client.cpp.i
-
-server/CMakeFiles/server.dir/src/client/Server_Client.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/client/Server_Client.cpp.s"
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build/server && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jaroslav/Dokumenty/os/psi/1_uloha/server/src/client/Server_Client.cpp -o CMakeFiles/server.dir/src/client/Server_Client.cpp.s
-
-server/CMakeFiles/server.dir/src/other/Other.cpp.o: server/CMakeFiles/server.dir/flags.make
-server/CMakeFiles/server.dir/src/other/Other.cpp.o: ../server/src/other/Other.cpp
-server/CMakeFiles/server.dir/src/other/Other.cpp.o: server/CMakeFiles/server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaroslav/Dokumenty/os/psi/1_uloha/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object server/CMakeFiles/server.dir/src/other/Other.cpp.o"
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build/server && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT server/CMakeFiles/server.dir/src/other/Other.cpp.o -MF CMakeFiles/server.dir/src/other/Other.cpp.o.d -o CMakeFiles/server.dir/src/other/Other.cpp.o -c /home/jaroslav/Dokumenty/os/psi/1_uloha/server/src/other/Other.cpp
-
-server/CMakeFiles/server.dir/src/other/Other.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/other/Other.cpp.i"
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build/server && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jaroslav/Dokumenty/os/psi/1_uloha/server/src/other/Other.cpp > CMakeFiles/server.dir/src/other/Other.cpp.i
-
-server/CMakeFiles/server.dir/src/other/Other.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/other/Other.cpp.s"
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build/server && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jaroslav/Dokumenty/os/psi/1_uloha/server/src/other/Other.cpp -o CMakeFiles/server.dir/src/other/Other.cpp.s
-
 # Object files for target server
 server_OBJECTS = \
 "CMakeFiles/server.dir/main.cpp.o" \
-"CMakeFiles/server.dir/src/Server.cpp.o" \
-"CMakeFiles/server.dir/src/client/Server_Client.cpp.o" \
-"CMakeFiles/server.dir/src/other/Other.cpp.o"
+"CMakeFiles/server.dir/src/Server.cpp.o"
 
 # External object files for target server
 server_EXTERNAL_OBJECTS =
 
 server/server: server/CMakeFiles/server.dir/main.cpp.o
 server/server: server/CMakeFiles/server.dir/src/Server.cpp.o
-server/server: server/CMakeFiles/server.dir/src/client/Server_Client.cpp.o
-server/server: server/CMakeFiles/server.dir/src/other/Other.cpp.o
 server/server: server/CMakeFiles/server.dir/build.make
 server/server: server/CMakeFiles/server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jaroslav/Dokumenty/os/psi/1_uloha/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jaroslav/Dokumenty/os/psi/1_uloha/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable server"
 	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build/server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

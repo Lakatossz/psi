@@ -10,8 +10,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/jaroslav/Dokumenty/os/psi/1_uloha/server/main.cpp" "server/CMakeFiles/server.dir/main.cpp.o" "gcc" "server/CMakeFiles/server.dir/main.cpp.o.d"
   "/home/jaroslav/Dokumenty/os/psi/1_uloha/server/src/Server.cpp" "server/CMakeFiles/server.dir/src/Server.cpp.o" "gcc" "server/CMakeFiles/server.dir/src/Server.cpp.o.d"
-  "/home/jaroslav/Dokumenty/os/psi/1_uloha/server/src/client/Server_Client.cpp" "server/CMakeFiles/server.dir/src/client/Server_Client.cpp.o" "gcc" "server/CMakeFiles/server.dir/src/client/Server_Client.cpp.o.d"
-  "/home/jaroslav/Dokumenty/os/psi/1_uloha/server/src/other/Other.cpp" "server/CMakeFiles/server.dir/src/other/Other.cpp.o" "gcc" "server/CMakeFiles/server.dir/src/other/Other.cpp.o.d"
   )
 
 # Targets to which this target links.

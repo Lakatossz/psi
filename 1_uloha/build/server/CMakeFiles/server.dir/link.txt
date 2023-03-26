@@ -1,1 +1,1 @@
-/bin/c++ -g CMakeFiles/server.dir/main.cpp.o CMakeFiles/server.dir/src/Server.cpp.o CMakeFiles/server.dir/src/client/Server_Client.cpp.o CMakeFiles/server.dir/src/other/Other.cpp.o -o server 
+/bin/c++ -g CMakeFiles/server.dir/main.cpp.o CMakeFiles/server.dir/src/Server.cpp.o -o server 

@@ -20,30 +20,35 @@
 #define ERR_CONN 10
 #define ERR_PARAM 11
 
-#define MAX_CLIENTS 5
-
-#define MAX_MESS_SIZE 255
+#define MAX_MESS_SIZE 256
 
 using namespace std;
 
+/**
+ * Definice tridy klient.
+ * Obsahuje vsechny potrebne atributy pro beh klienta.
+ */
 class Client {
 
 private:
 
+    /** Port, na ktery se klient pripoji. */
     int port;
 
+    /** Zprava, ktera bude odeslana. */
     char message[MAX_MESS_SIZE] = { 0 };
 
+    /** Delka zpravy. */
     int message_length = 0;
-
-    /* Urcuje, jestli klient bezi. */
-    bool running;
 
 public:
 
+    /** Vytvori noveho klienta s danymi parametry. */
     Client(int port, string message);
 
-    ~Client();
-
+    /**
+     * Spusti klienta, ktery se pripoji na server a
+     * posle zadanou zpravu, nasledne posloucha odpoved.
+     */
     void Run_Client();
 };

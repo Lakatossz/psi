@@ -40,11 +40,6 @@ Server::Server(int port)
     running = true;
 }
 
-Server::~Server()
-{
-
-}
-
 void Server::Run_Server()
 {
     int res;
@@ -112,62 +107,54 @@ void Server::Run_Server()
 
         return_value = select(FD_SETSIZE, &read_fds, &write_fds, nullptr, &timeout);
 
+        if (thread_number > 100) {
+            for(int i = 0; i < 50; i++) {
+                pthread_join(client_threads[i], nullptr);
+            }
+            thread_number -= 50;
+        }
+
         /** Posloucha, pokud se pripoji nejaky novy klient. */
         if(return_value == -1) {
             cout << "Server-select() error!" << endl;
+            return;
         } else if(return_value) {
             usleep(1);
-
-            /** Tedka projde vsechny sockety a bude obstaravat vsechny sockety. */
-            for (curr_sock = server_socket; curr_sock << fdmax; ++curr_sock)
-            {
-                /** Testuje, zda-li je fd soucasti setu. */
-                if(FD_ISSET(curr_sock, &read_fds)) {
-                    /** Socket serveru, tj. nekdo se pripojil. */
-                    if(curr_sock == server_socket) {
-                        inlen = sizeof(incoming);
-                        if((newfd = accept(server_socket, (struct sockaddr *)&incoming, &inlen)) == -1) {
-                            cout << "Server-accept() error" << endl;
-                        } else {
-                            /** Vse se podarilo, na serveru je novy klient. */
-                            cout << "Server-accept() is OK..." << endl;
-                            FD_SET(newfd, &master);
-                            if(newfd > fdmax) {
-                                fdmax = newfd;
-                            }
-
-                            cout << "Nove spojeni z ip adresy " << inet_ntoa(incoming.sin_addr) << " na socketu " << newfd << endl;
-
-                            // Tady otevru vlakno, kde budu zpracovavat klienty
-                            if (pthread_create(&client_threads[thread_number], NULL, &Server::Handle_Client, &newfd) != 0) {
-                                cout << "Nepodarilo se vytvorit vlakno." << endl;
-                            }
-                            thread_number++;
-                        }
-                    }
+            inlen = sizeof(incoming);
+            if((newfd = accept(server_socket, (struct sockaddr *)&incoming, &inlen)) == -1) {
+                cout << "Server-accept() error" << endl;
+                return;
+            } else {
+                /** Vse se podarilo, na serveru je novy klient. */
+                cout << "Server-accept() is OK..." << endl;
+                FD_SET(newfd, &master);
+                if(newfd > fdmax) {
+                    fdmax = newfd;
                 }
+
+                cout << "Nove spojeni z ip adresy " << inet_ntoa(incoming.sin_addr) << " na socketu " << newfd << endl;
+
+                /** Tady otevru vlakno, kde budu zpracovavat klienty */
+                if (pthread_create(&client_threads[thread_number], nullptr, &Server::Handle_Client, &newfd) != 0) {
+                    cout << "Nepodarilo se vytvorit vlakno." << endl;
+                }
+                thread_number++;
             }
         }
-    }
-
-    for(int i = 0; i < thread_number++; i++) {
-        pthread_join(client_threads[i], NULL);
     }
 }
 
 void * Server::Handle_Client(void *client_socket)
 {
-    char incoming_buf[MAX_MESS_SIZE] = { 0 }, outcoming_buf[MAX_MESS_SIZE] = { 0 };
+    char buf[MAX_MESS_SIZE] = { 0 };
     size_t return_value;
 
-    int socket = (long) client_socket;
+    int socket = (*(int*) client_socket);
 
-    memset(incoming_buf, 0, MAX_MESS_SIZE);
+    memset(buf, 0, MAX_MESS_SIZE);
 
     cout << "Zpracovavam klienta na socketu " << socket << endl;
-
-    memset(incoming_buf, 0, MAX_MESS_SIZE);
-    return_value = recv(socket, incoming_buf, MAX_MESS_SIZE, 0);
+    return_value = recv(socket, buf, MAX_MESS_SIZE, 0);
     if(return_value < 1) {
         /** Socket je zavreny. */
         cout << "Odpojil jsem klienta na socketu: " << return_value << endl;
@@ -179,19 +166,20 @@ void * Server::Handle_Client(void *client_socket)
         return nullptr;
     } else {
 
-        cout << "Delka zpravy: " << (int) incoming_buf[0] << endl;
-        cout << "Obsah zpravy: " << string(incoming_buf + 1) << endl;
+        cout << "Delka zpravy: " << (int) buf[0] << endl;
+        cout << "Obsah zpravy: " << string(buf + 1) << endl;
 
-        string str = string(incoming_buf + 1);
+        string str = string(buf + 1);
         reverse(str.begin(), str.end());
 
-        memcpy(outcoming_buf + 1, str.c_str(), str.length());
-        outcoming_buf[0] = (char) str.length();
+        memcpy(buf + 1, str.c_str(), str.length());
+        buf[0] = (char) str.length();
 
-        cout << "Odesilam: " << outcoming_buf << endl;
-        send(socket, outcoming_buf, str.length() + 1, 0);
+        cout << "Odesilam zpravu: " << buf << endl;
+        send(socket, buf, str.length() + 1, 0);
         Close_Socket(socket);
     }
+
     return nullptr;
 }
 

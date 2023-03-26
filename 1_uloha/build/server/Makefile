@@ -223,54 +223,6 @@ src/Server.cpp.s:
 	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/Server.cpp.s
 .PHONY : src/Server.cpp.s
 
-src/client/Server_Client.o: src/client/Server_Client.cpp.o
-.PHONY : src/client/Server_Client.o
-
-# target to build an object file
-src/client/Server_Client.cpp.o:
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/client/Server_Client.cpp.o
-.PHONY : src/client/Server_Client.cpp.o
-
-src/client/Server_Client.i: src/client/Server_Client.cpp.i
-.PHONY : src/client/Server_Client.i
-
-# target to preprocess a source file
-src/client/Server_Client.cpp.i:
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/client/Server_Client.cpp.i
-.PHONY : src/client/Server_Client.cpp.i
-
-src/client/Server_Client.s: src/client/Server_Client.cpp.s
-.PHONY : src/client/Server_Client.s
-
-# target to generate assembly for a file
-src/client/Server_Client.cpp.s:
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/client/Server_Client.cpp.s
-.PHONY : src/client/Server_Client.cpp.s
-
-src/other/Other.o: src/other/Other.cpp.o
-.PHONY : src/other/Other.o
-
-# target to build an object file
-src/other/Other.cpp.o:
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/other/Other.cpp.o
-.PHONY : src/other/Other.cpp.o
-
-src/other/Other.i: src/other/Other.cpp.i
-.PHONY : src/other/Other.i
-
-# target to preprocess a source file
-src/other/Other.cpp.i:
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/other/Other.cpp.i
-.PHONY : src/other/Other.cpp.i
-
-src/other/Other.s: src/other/Other.cpp.s
-.PHONY : src/other/Other.s
-
-# target to generate assembly for a file
-src/other/Other.cpp.s:
-	cd /home/jaroslav/Dokumenty/os/psi/1_uloha/build && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/other/Other.cpp.s
-.PHONY : src/other/Other.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -290,12 +242,6 @@ help:
 	@echo "... src/Server.o"
 	@echo "... src/Server.i"
 	@echo "... src/Server.s"
-	@echo "... src/client/Server_Client.o"
-	@echo "... src/client/Server_Client.i"
-	@echo "... src/client/Server_Client.s"
-	@echo "... src/other/Other.o"
-	@echo "... src/other/Other.i"
-	@echo "... src/other/Other.s"
 .PHONY : help
 
 
