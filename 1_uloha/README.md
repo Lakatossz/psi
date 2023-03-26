@@ -33,6 +33,14 @@ připojit najednou několik set klientů.
 
 - Port: číslo od 1 do 65535
 
+### Sestavení
+
+- make -C build/server
+
+### Spuštění
+
+- ./build/server/server <cislo_portu>
+
 ## Klient
 
 ### Popis funkčnosti:
@@ -58,3 +66,10 @@ validaci odpovědi. Během konverzace se serverem klient reaguje na výpadky na 
 - Port: číslo od 1 do 65535
 - Zpráva: nepřerušený řetězec o délce maximálně 255 znaků
 
+### Sestavení
+
+- make -C build/client
+
+### Spuštění
+
+- ./build/client/client <cislo_port> <obsah_zpravy>
